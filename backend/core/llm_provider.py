@@ -21,7 +21,7 @@ class LLMTimeoutError(LLMProviderError):
     pass
 
 class LLMProvider:
-    def __init__(self, api_key: str, model_name: str = "llama3-8b-8192", timeout: int = 30):
+    def __init__(self, api_key: str, model_name: str = "llama-3.1-8b-instant", timeout: int = 30):
         """
         Initialize the LLM provider.
         
