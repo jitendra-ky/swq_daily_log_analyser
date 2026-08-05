@@ -1,0 +1,59 @@
+[
+  {
+    "_comment": "V-REF-001: non-refund. ATORVASTATIN×2, hour 10. collected=24000.",
+    "clinic_id": "CLN-ANA-002",
+    "visit_id": "V-REF-001",
+    "timestamp": "2026-07-25T10:00:00Z",
+    "doctor_id": "DOC-002-01",
+    "line_items": [
+      { "drug_name": "ATORVASTATIN", "qty": 2, "unit_price_paise": 12000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 24000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-REF-002: non-refund. AMOXICILLIN×3 + OMEPRAZOLE×1, hour 13. collected=22000.",
+    "clinic_id": "CLN-ANA-002",
+    "visit_id": "V-REF-002",
+    "timestamp": "2026-07-25T13:00:00Z",
+    "doctor_id": "DOC-002-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN", "qty": 3, "unit_price_paise": 6000 },
+      { "drug_name": "OMEPRAZOLE",  "qty": 1, "unit_price_paise": 4000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 22000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-REF-003: REFUND. ATORVASTATIN×2 at hour 10. Must NOT appear in revenue or rankings.",
+    "clinic_id": "CLN-ANA-002",
+    "visit_id": "V-REF-003",
+    "timestamp": "2026-07-25T10:00:00Z",
+    "doctor_id": "DOC-002-01",
+    "line_items": [
+      { "drug_name": "ATORVASTATIN", "qty": 2, "unit_price_paise": 12000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": -24000,
+    "discount_paise": 0,
+    "is_refund": true
+  },
+  {
+    "_comment": "V-REF-004: REFUND. METFORMIN×1 at hour 16. METFORMIN must not appear in rankings at all.",
+    "clinic_id": "CLN-ANA-002",
+    "visit_id": "V-REF-004",
+    "timestamp": "2026-07-25T16:00:00Z",
+    "doctor_id": "DOC-002-02",
+    "line_items": [
+      { "drug_name": "METFORMIN", "qty": 1, "unit_price_paise": 3000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": -3000,
+    "discount_paise": 0,
+    "is_refund": true
+  }
+]

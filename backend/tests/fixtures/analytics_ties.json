@@ -1,0 +1,44 @@
+[
+  {
+    "_comment": "V-TIE-001: AMOXICILLIN×3, revenue=18000. AMOXICILLIN < PARACETAMOL alphabetically → rank 1.",
+    "clinic_id": "CLN-ANA-004",
+    "visit_id": "V-TIE-001",
+    "timestamp": "2026-07-27T09:00:00Z",
+    "doctor_id": "DOC-004-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN", "qty": 3, "unit_price_paise": 6000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 18000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-TIE-002: PARACETAMOL×3, revenue=6000. qty ties with AMOXICILLIN (both=3). PARACETAMOL > AMOXICILLIN → rank 2.",
+    "clinic_id": "CLN-ANA-004",
+    "visit_id": "V-TIE-002",
+    "timestamp": "2026-07-27T10:00:00Z",
+    "doctor_id": "DOC-004-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 3, "unit_price_paise": 2000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 6000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-TIE-003: METFORMIN×2 — strictly lower qty (2) and lower revenue (6000) than the tied pair.",
+    "clinic_id": "CLN-ANA-004",
+    "visit_id": "V-TIE-003",
+    "timestamp": "2026-07-27T11:00:00Z",
+    "doctor_id": "DOC-004-01",
+    "line_items": [
+      { "drug_name": "METFORMIN", "qty": 2, "unit_price_paise": 3000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 6000,
+    "discount_paise": 0,
+    "is_refund": false
+  }
+]

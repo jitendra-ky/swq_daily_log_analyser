@@ -1,0 +1,150 @@
+[
+  {
+    "_comment": "V-ANA-001: CASH, hour 9. PARACETAMOL×3. gross=6000, collected=6000.",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-001",
+    "timestamp": "2026-07-27T09:10:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 3, "unit_price_paise": 2000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 6000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-002: CARD, hour 9. OMEPRAZOLE×1. gross=4000, collected=3000 (disc=1000).",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-002",
+    "timestamp": "2026-07-27T09:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "OMEPRAZOLE", "qty": 1, "unit_price_paise": 4000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": 3000,
+    "discount_paise": 1000,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-003: UPI, hour 10. AMOXICILLIN×1. gross=6000, collected=5000 (disc=1000).",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-003",
+    "timestamp": "2026-07-27T10:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN", "qty": 1, "unit_price_paise": 6000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 5000,
+    "discount_paise": 1000,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-004: UPI, hour 10. ATORVASTATIN×3 + AMOXICILLIN×2 + OMEPRAZOLE×1. gross=52000, collected=51500 (disc=0, check note).",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-004",
+    "timestamp": "2026-07-27T10:30:00Z",
+    "doctor_id": "DOC-001-02",
+    "line_items": [
+      { "drug_name": "ATORVASTATIN", "qty": 3, "unit_price_paise": 12000 },
+      { "drug_name": "AMOXICILLIN",  "qty": 2, "unit_price_paise": 6000  },
+      { "drug_name": "OMEPRAZOLE",   "qty": 1, "unit_price_paise": 4000  }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 52000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-005: CASH, hour 11. AMOXICILLIN×2. gross=12000, collected=12000.",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-005",
+    "timestamp": "2026-07-27T11:30:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN", "qty": 2, "unit_price_paise": 6000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 12000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-006: UPI, hour 11. METFORMIN×1 + OMEPRAZOLE×3. gross=15000, collected=14500 (disc=500).",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-006",
+    "timestamp": "2026-07-27T11:00:00Z",
+    "doctor_id": "DOC-001-02",
+    "line_items": [
+      { "drug_name": "METFORMIN",  "qty": 1, "unit_price_paise": 3000 },
+      { "drug_name": "OMEPRAZOLE", "qty": 3, "unit_price_paise": 4000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 14500,
+    "discount_paise": 500,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-007: CARD, hour 13. METFORMIN×3 + AMOXICILLIN×2. gross=21000, collected=21000.",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-007",
+    "timestamp": "2026-07-27T13:50:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "METFORMIN",   "qty": 3, "unit_price_paise": 3000 },
+      { "drug_name": "AMOXICILLIN", "qty": 2, "unit_price_paise": 6000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": 21000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-008: CASH, hour 13. AMOXICILLIN×2 + OMEPRAZOLE×2 + ATORVASTATIN×3. gross=56000, collected=55000 (disc=1000).",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-008",
+    "timestamp": "2026-07-27T13:50:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN",  "qty": 2, "unit_price_paise": 6000  },
+      { "drug_name": "OMEPRAZOLE",   "qty": 2, "unit_price_paise": 4000  },
+      { "drug_name": "ATORVASTATIN", "qty": 3, "unit_price_paise": 12000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 55000,
+    "discount_paise": 1000,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-009: CARD, hour 16. ATORVASTATIN×3. gross=36000, collected=35200 (disc=0).",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-009",
+    "timestamp": "2026-07-27T16:30:00Z",
+    "doctor_id": "DOC-001-02",
+    "line_items": [
+      { "drug_name": "ATORVASTATIN", "qty": 3, "unit_price_paise": 12000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": 35200,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "_comment": "V-ANA-010: CARD, hour 17. METFORMIN×3 + PARACETAMOL×1 + OMEPRAZOLE×3. gross=23000, collected=22000 (disc=1000).",
+    "clinic_id": "CLN-ANA-001",
+    "visit_id": "V-ANA-010",
+    "timestamp": "2026-07-27T17:50:00Z",
+    "doctor_id": "DOC-001-02",
+    "line_items": [
+      { "drug_name": "METFORMIN",   "qty": 3, "unit_price_paise": 3000 },
+      { "drug_name": "PARACETAMOL", "qty": 1, "unit_price_paise": 2000 },
+      { "drug_name": "OMEPRAZOLE",  "qty": 3, "unit_price_paise": 4000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": 22000,
+    "discount_paise": 1000,
+    "is_refund": false
+  }
+]

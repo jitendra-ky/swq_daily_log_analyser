@@ -1,0 +1,16 @@
+[
+  {
+    "_comment": "V-SING-001: single non-refund. PARACETAMOL×1, hour 9. collected=2000.",
+    "clinic_id": "CLN-ANA-003",
+    "visit_id": "V-SING-001",
+    "timestamp": "2026-07-27T09:00:00Z",
+    "doctor_id": "DOC-003-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 1, "unit_price_paise": 2000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 2000,
+    "discount_paise": 0,
+    "is_refund": false
+  }
+]
