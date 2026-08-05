@@ -32,11 +32,28 @@ class MedicineRankEntrySerializer(serializers.ModelSerializer):
 
 class AnalyticsReportSerializer(serializers.ModelSerializer):
     revenue_by_hour = HourlyRevenueSerializer(many=True, read_only=True)
-    medicine_ranks = MedicineRankEntrySerializer(many=True, read_only=True)
+    peak_hour = serializers.SerializerMethodField()
+    top_by_quantity = serializers.SerializerMethodField()
+    top_by_revenue = serializers.SerializerMethodField()
 
     class Meta:
         model = AnalyticsReport
-        fields = ['clinic_id', 'report_date', 'revenue_by_hour', 'medicine_ranks']
+        fields = ['clinic_id', 'report_date', 'revenue_by_hour', 'peak_hour', 'top_by_quantity', 'top_by_revenue']
+
+    def get_peak_hour(self, obj):
+        revenue = obj.revenue_by_hour.all()
+        if not revenue:
+            return None
+        peak = max(revenue, key=lambda hr: hr.revenue_paise)
+        return HourlyRevenueSerializer(peak).data
+
+    def get_top_by_quantity(self, obj):
+        ranks = obj.medicine_ranks.filter(rank_type="qty").order_by('rank')
+        return MedicineRankEntrySerializer(ranks, many=True).data
+
+    def get_top_by_revenue(self, obj):
+        ranks = obj.medicine_ranks.filter(rank_type="revenue").order_by('rank')
+        return MedicineRankEntrySerializer(ranks, many=True).data
 
 class TracedFigureSerializer(serializers.ModelSerializer):
     class Meta:
