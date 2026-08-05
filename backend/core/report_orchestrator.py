@@ -54,6 +54,12 @@ class ReportOrchestrator:
         # 2. Persistence (Ingestion)
         # Using atomic to ensure partial data isn't saved.
         with transaction.atomic():
+            # Clean the whole database as per user request
+            BillingRecord.objects.all().delete()
+            ValidationError.objects.all().delete()
+            ReconciliationReport.objects.all().delete()
+            AnalyticsReport.objects.all().delete()
+            
             if parse_result.errors:
                 ValidationError.objects.bulk_create(parse_result.errors)
                 
