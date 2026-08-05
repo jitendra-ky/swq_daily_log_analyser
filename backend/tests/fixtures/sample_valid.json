@@ -1,0 +1,42 @@
+[
+  {
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-VALID-001",
+    "timestamp": "2026-07-27T09:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 2, "unit_price_paise": 2000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 4000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-VALID-002",
+    "timestamp": "2026-07-27T11:30:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN", "qty": 3, "unit_price_paise": 6000 },
+      { "drug_name": "OMEPRAZOLE",  "qty": 1, "unit_price_paise": 4000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": 21000,
+    "discount_paise": 1000,
+    "is_refund": false
+  },
+  {
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-VALID-003",
+    "timestamp": "2026-07-27T14:00:00Z",
+    "doctor_id": "DOC-001-02",
+    "line_items": [
+      { "drug_name": "METFORMIN", "qty": 1, "unit_price_paise": 3000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 3000,
+    "discount_paise": 0,
+    "is_refund": false
+  }
+]

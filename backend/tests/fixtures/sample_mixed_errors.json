@@ -1,0 +1,123 @@
+[
+  {
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-GOOD-001",
+    "timestamp": "2026-07-27T09:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 2, "unit_price_paise": 2000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 4000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "comment": "ERR: missing payment_mode",
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-ERR-MISSING-PM",
+    "timestamp": "2026-07-27T10:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 1, "unit_price_paise": 2000 }
+    ],
+    "amount_paid_paise": 4000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "comment": "ERR: refund with positive amount",
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-ERR-REFUND-POS",
+    "timestamp": "2026-07-27T11:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "METFORMIN", "qty": 1, "unit_price_paise": 3000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 3000,
+    "discount_paise": 0,
+    "is_refund": true
+  },
+  {
+    "comment": "ERR: float paise",
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-ERR-FLOAT-PAISE",
+    "timestamp": "2026-07-27T12:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN", "qty": 1, "unit_price_paise": 6000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 6000.50,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "comment": "ERR: invalid timestamp",
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-ERR-TS",
+    "timestamp": "27-07-2026 09:00",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 1, "unit_price_paise": 2000 }
+    ],
+    "payment_mode": "cash",
+    "amount_paid_paise": 2000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "comment": "ERR: empty line_items",
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-ERR-EMPTY-ITEMS",
+    "timestamp": "2026-07-27T13:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [],
+    "payment_mode": "cash",
+    "amount_paid_paise": 0,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "comment": "ERR: qty is zero",
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-ERR-ZERO-QTY",
+    "timestamp": "2026-07-27T14:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "METFORMIN", "qty": 0, "unit_price_paise": 3000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": 0,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "comment": "ERR: invalid payment_mode value",
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-ERR-BAD-PM",
+    "timestamp": "2026-07-27T15:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "PARACETAMOL", "qty": 1, "unit_price_paise": 2000 }
+    ],
+    "payment_mode": "cheque",
+    "amount_paid_paise": 2000,
+    "discount_paise": 0,
+    "is_refund": false
+  },
+  {
+    "clinic_id": "CLN-TEST-001",
+    "visit_id": "V-GOOD-002",
+    "timestamp": "2026-07-27T16:00:00Z",
+    "doctor_id": "DOC-001-02",
+    "line_items": [
+      { "drug_name": "ATORVASTATIN", "qty": 1, "unit_price_paise": 12000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": 12000,
+    "discount_paise": 0,
+    "is_refund": false
+  }
+]
