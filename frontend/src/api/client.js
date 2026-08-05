@@ -1,5 +1,6 @@
 export const generateReport = async (rawRows) => {
-  const response = await fetch('/api/v1/reports/generate/', {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+  const response = await fetch(`${API_BASE_URL}/api/v1/reports/generate/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -16,7 +17,8 @@ export const generateReport = async (rawRows) => {
 };
 
 export const fetchReport = async (clinicId, date) => {
-  const response = await fetch(`/api/v1/reports/${clinicId}/${date}/`);
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+  const response = await fetch(`${API_BASE_URL}/api/v1/reports/${clinicId}/${date}/`);
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
