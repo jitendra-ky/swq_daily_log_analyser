@@ -177,9 +177,6 @@ flowchart TB
         D1[buildPrompt]
         D2[callLLM]
         D3[parseTemplateResponse]
-    end
-
-    subgraph Grounding["Grounding Service"]
         E1[checkNoStrayDigits]
         E2[checkPlaceholdersKnown]
         E3[substitutePlaceholders]
@@ -215,11 +212,7 @@ flowchart TB
 - **Ingestion**, **Reconciliation**, **Analytics** never import anything LLM-related — they must
   be independently unit-testable and independently *correct*, since the brief grades this layer
   first and treats it as ground truth for everything downstream.
-- **Narrative** and **Grounding** are separate services, not one function. Narrative only talks
-  to the model; Grounding never talks to the model — it does pure string/dict operations
-  (stray-digit scan, placeholder lookup, substitution). This lets you unit-test grounding with
-  hand-written fake LLM template responses (including malformed or number-smuggling ones)
-  without hitting the API at all.
+- **Narrative**, **Context Building**, and **Grounding** have been consolidated into a single `NarrativeService` class to reduce file overhead. The grounding logic itself still never talks to the model — it remains as pure string/dict operations (`_check_no_stray_digits`, `_check_placeholders_known`, `_substitute_placeholders`) that are fully unit-testable with hand-written fake LLM template responses.
 - **Orchestrator** is the only piece that knows the full pipeline order. It owns retries and the
   fallback decision — services below it stay dumb and single-purpose.
 
@@ -235,7 +228,6 @@ sequenceDiagram
     participant Ana as AnalyticsService
     participant Nar as NarrativeService
     participant LLM as LLM Provider
-    participant Gnd as GroundingService
 
     Caller->>Ing: parseLog(rawRows)
     Ing-->>Caller: ParseResult (validRecords, errors)
@@ -258,9 +250,9 @@ sequenceDiagram
         Nar-->>Caller: NarrativeResult status FAILED_FALLBACK, deterministic text
     else response is valid JSON
         Nar-->>Caller: LLMTemplateResponse summaryTemplate
-        Caller->>Gnd: validate(LLMTemplateResponse, NarrativeContext)
-        Note over Gnd: checks in order -<br/>1. no digits outside placeholders<br/>2. every placeholder key is known<br/>3. substitute and build tracedFigures
-        Gnd-->>Caller: NarrativeResult status, text, tracedFigures
+        Caller->>Nar: validate(LLMTemplateResponse, NarrativeContext)
+        Note over Nar: checks in order -<br/>1. no digits outside placeholders<br/>2. every placeholder key is known<br/>3. substitute and build tracedFigures
+        Nar-->>Caller: NarrativeResult status, text, tracedFigures
     end
 
     opt status is REJECTED_RETRY
@@ -268,8 +260,8 @@ sequenceDiagram
         Nar->>LLM: request template again
         LLM-->>Nar: modelResponse
         Nar-->>Caller: LLMTemplateResponse
-        Caller->>Gnd: validate() again
-        Gnd-->>Caller: NarrativeResult
+        Caller->>Nar: validate() again
+        Nar-->>Caller: NarrativeResult
 
         opt second attempt still rejected or malformed
             Caller->>Caller: build NarrativeResult status FAILED_FALLBACK, code-generated text only
@@ -405,10 +397,7 @@ core/
   analytics/
     analytics_service.*
   narrative/
-    context_builder.*      # whitelist + formatting: Report -> NarrativeContext
-    prompt_builder.*
-    narrative_service.*    # owns the LLM call only
-    grounding_service.*    # stray-digit check, placeholder check, substitution
+    narrative_service.*    # Single class containing Context Builder, LLM orchestration, and Grounding logic
   orchestrator/
     report_orchestrator.*
 tests/
@@ -427,7 +416,7 @@ tests/
   grounding.test.*
 ```
 
-Keep `grounding_service` importable and testable with zero network calls — it should take an
+Keep the grounding methods within `NarrativeService` testable with zero network calls — they should take an
 `LLMTemplateResponse` + a `NarrativeContext` and return a `NarrativeResult`. That lets you write
 tests like "feed it a template containing the literal `8400`, assert `status ==
 REJECTED_RETRY`" or "feed it `{{profit}}`, assert rejection with reason 'unknown placeholder'" —
