@@ -1,0 +1,45 @@
+[
+  {
+    "_comment": "V-REF-001: CARD refund. amount_paid_paise=-24000 (negative, per LLD §1). gross of line items=24000.",
+    "clinic_id": "CLN-RECON-001",
+    "visit_id": "V-REF-001",
+    "timestamp": "2026-07-27T10:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "ATORVASTATIN", "qty": 2, "unit_price_paise": 12000 }
+    ],
+    "payment_mode": "card",
+    "amount_paid_paise": -24000,
+    "discount_paise": 0,
+    "is_refund": true
+  },
+  {
+    "_comment": "V-REF-002: UPI refund. amount_paid_paise=-22000.",
+    "clinic_id": "CLN-RECON-001",
+    "visit_id": "V-REF-002",
+    "timestamp": "2026-07-27T13:00:00Z",
+    "doctor_id": "DOC-001-01",
+    "line_items": [
+      { "drug_name": "AMOXICILLIN", "qty": 3, "unit_price_paise": 6000 },
+      { "drug_name": "OMEPRAZOLE",  "qty": 1, "unit_price_paise": 4000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": -22000,
+    "discount_paise": 0,
+    "is_refund": true
+  },
+  {
+    "_comment": "V-REF-003: UPI refund. amount_paid_paise=-3000.",
+    "clinic_id": "CLN-RECON-001",
+    "visit_id": "V-REF-003",
+    "timestamp": "2026-07-27T16:00:00Z",
+    "doctor_id": "DOC-001-02",
+    "line_items": [
+      { "drug_name": "METFORMIN", "qty": 1, "unit_price_paise": 3000 }
+    ],
+    "payment_mode": "upi",
+    "amount_paid_paise": -3000,
+    "discount_paise": 0,
+    "is_refund": true
+  }
+]
