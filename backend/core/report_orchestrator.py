@@ -8,6 +8,7 @@ Coordinates ingestion, reconciliation, analytics, and narrative services.
 from typing import Any
 
 from django.db import transaction
+from django.conf import settings
 
 from core.ingestion_service import IngestionService
 from core.reconciliation_service import ReconciliationService
@@ -33,7 +34,7 @@ class ReportOrchestrator:
         self.reconciliation = ReconciliationService()
         self.analytics = AnalyticsService()
         # Allows dependency injection for tests
-        self.narrative = NarrativeService(llm_provider=llm_provider or LLMProvider())
+        self.narrative = NarrativeService(llm_provider=llm_provider or LLMProvider(api_key=settings.GROQ_API_KEY))
 
     def generate_daily_report(self, clinic_id: str, raw_rows: list[dict[str, Any]], batch: str) -> dict[str, Any]:
         """
