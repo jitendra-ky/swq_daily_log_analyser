@@ -2,6 +2,8 @@
 
 This repository contains the SwasthiQ hiring assignment implementation with:
 
+LIVE LINK - https://swq-daily-log-analyser.vercel.app/
+
 - `backend/`: Django REST API for deterministic reconciliation, analytics, and grounded narrative generation.
 - `frontend/`: React (Vite) UI with three views: Reconciliation Dashboard, Analytics, and AI Narrative Summary.
 
